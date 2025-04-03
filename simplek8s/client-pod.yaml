@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod # Defines the type of Kubernetes object, in this case, a Pod.
+# A Pod is the smallest deployable unit in Kubernetes and can run one or more containers.
+metadata:
+  name: client-pod # The name of the Pod, used to identify it within the cluster.
+  labels:
+    component: client # Labels are key-value pairs used to organize and select Kubernetes objects.
+spec:
+  containers: # Defines the list of containers that will run inside the Pod.
+    - name: client # The name of the container.
+      image: learn/multi-client # The Docker image used to create the container.
+      ports:
+        - containerPort: 3000 # The port on which the container listens for incoming traffic.
+        # Explanation of `containerPort`:
+        # - This is the port exposed by the container inside the Pod. It allows the container to receive traffic.
+        # - Other Kubernetes objects, such as Services, can route traffic to this port.
+# Note:
+# Kubernetes does not directly access Docker images built and tagged on a local machine.
+# Images must be pushed to a container registry (e.g., Docker Hub) to make them accessible to the cluster.
