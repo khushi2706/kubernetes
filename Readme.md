@@ -20,6 +20,29 @@ A Kubernetes cluster consists of a **Control Plane** and **Worker Nodes**. The C
 
 ---
 
+# Kubernetes Object Types
+
+Kubernetes objects are persistent entities in the Kubernetes system. They represent the state of your cluster and describe what you want your cluster to do. Below are the common Kubernetes object types:
+
+## 1. **Pod**
+- The smallest and simplest Kubernetes object.
+- Represents a single instance of a running process in your cluster.
+- Can contain one or more containers.
+
+## 2. **Service**
+- Provides a stable network endpoint to access one or more Pods.
+- Types:
+  - ClusterIP: Internal access within the cluster.
+  - NodePort: Exposes the service on each Node's IP at a static port.
+  - LoadBalancer: Exposes the service externally using a cloud provider's load balancer.
+
+## 3. **Deployment**
+- Manages a set of identical Pods.
+- Ensures the desired number of Pods are running.
+- Supports rolling updates and rollbacks.
+
+![image](/images/type_of_object.png)
+
 ## Kubernetes Command
 
 Kubernetes uses the `kubectl` command-line tool to interact with the cluster. It allows you to deploy applications, inspect resources, and manage the cluster.
@@ -41,7 +64,7 @@ Kubernetes uses the `kubectl` command-line tool to interact with the cluster. It
    ```bash
    kubectl apply -f <file.yaml>
    ```
-   Deploys resources defined in a YAML file.
+   Deploys resources defined in a YAML file , if you want to update existing k8s object then keep the name and type as it is
 
 4. **View Pods**:
    ```bash
