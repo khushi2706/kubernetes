@@ -1,0 +1,13 @@
+apiVersion : app/latest
+kind : Deployment 
+meta-data: 
+  name : "url-shortner"
+spec:
+  replicas : 2
+  selector : 
+
+  template:
+    metadata:
+      lables:
+        "url-shortner"
+        
